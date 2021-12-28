@@ -5,6 +5,8 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.concurrent.TimeUnit;
+
 public class TestPlan {
 
     private static final ChromeDriver driver = new ChromeDriver();
@@ -21,6 +23,8 @@ public class TestPlan {
         webForm.enterFirstName();
         webForm.enterLastName();
         webForm.clickSubmitButton();
+        driver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
+        webForm.showAlert();
     }
 
     @After
